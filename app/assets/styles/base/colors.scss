@@ -1,0 +1,59 @@
+// Primary
+
+:root {
+    // Main
+    --bright-blue: hsl(220, 98%, 61%);
+
+    // Neutral
+    --white: #fff;
+    --black: #000;
+    
+    // Other
+    --very-light-gray: #fafafa;
+    --very-light-grayish-blue: #e4e5f1;
+    --light-grayish-blue-light-mode: #d2d3db;
+    --dark-grayish-blue-light-mode: #9394a5;
+    --very-dark-grayish-blue: #484b6a;
+
+    --very-dark-blue: #161722;
+    --very-dark-desaturated-blue: #25273c;
+    --light-grayish-blue-dark-mode: #cacde8;
+    --light-grayish-blue--hover: #e4e5f1;
+    --dark-grayish-blue-dark-mode: #777a92;
+    --very-dark-grayish-blue--1: #4d5066;
+    --very-dark-grayish-blue--2: #393a4c;
+
+    --app-danger-color: #58151c;
+    --app-danger-bg: #f8d7da;
+    --app-danger-border-color: #f1aeb5;
+
+    --body-background: var(--very-light-gray);
+    --app-color: var(--white);
+    --app-box-shadow: var(--very-light-grayish-blue);
+    --item-bottom-border: var(--light-grayish-blue--hover);
+    --completed-item-color: var(--light-grayish-blue-light-mode);
+    --line-through-color: var(--light-grayish-blue-dark-mode);
+    --input-color: var(--very-dark-grayish-blue);
+    --input-typing-color: var(--very-dark-blue);
+    --check-circle-color: var(--very-light-grayish-blue);
+    --footer-text-color: var(--dark-grayish-blue-light-mode);
+    --footer-text-hover: var(--very-dark-grayish-blue);
+    --footer-categories-shadow: var(--very-light-grayish-blue);
+}
+
+
+// Dark Theme
+body:has(.dark-mode) {
+    --body-background: var(--very-dark-blue);
+    --app-color: var(--very-dark-desaturated-blue);
+    --app-box-shadow: var(--very-dark-blue);
+    --item-bottom-border: var(--very-dark-grayish-blue--2);
+    --completed-item-color: var(--dark-grayish-blue-dark-mode);
+    --line-through-color: var(--dark-grayish-blue-dark-mode);
+    --input-color: var(--light-grayish-blue-dark-mode);
+    --input-typing-color: var(--light-grayish-blue-dark-mode);
+    --check-circle-color: var(--very-dark-grayish-blue--2);
+    --footer-text-color: var(--dark-grayish-blue-dark-mode);
+    --footer-text-hover: var(--light-grayish-blue-light-mode);
+    --footer-categories-shadow: var(--very-dark-blue);
+}

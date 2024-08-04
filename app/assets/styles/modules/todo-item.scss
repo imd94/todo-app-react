@@ -1,0 +1,212 @@
+.todo-item {
+    background-color: var(--app-color);
+    padding: 1.1rem 2.5rem 1.1rem 6.5rem;
+    padding-right: 5.5rem;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    &.completed {
+        &::after {
+            visibility: visible !important;
+            opacity: 1 !important;
+            background-color: var(--line-through-color);
+            width: calc(var(--input-width) - 6px);
+        }
+
+        .todo-item__text-input {
+            color: var(--completed-item-color);
+        }
+    }
+
+    &.has-error {
+        padding-bottom: 4rem;
+        transition: all .3s ease;
+    }
+
+    @media (max-width: 576px) {
+        padding: .5rem 8.5rem .5rem 5.5rem;
+    }
+
+    @media (min-width: 577px) {
+        &:hover {
+            //padding: 0 8.5rem 0 7.5rem;
+            .todo-item-cta {
+                transform: translateX(0);
+                right: 2rem;
+                opacity: 1;
+                visibility: visible;
+            }  
+        }
+    }
+
+    &--create {
+        padding: 0 2.5rem 0 5.5rem;
+        border-radius: .5rem;
+        padding-right: 0;
+
+        @media (max-width: 576px) {
+            padding-left: 4.5rem;
+        }
+
+        .create-field {
+            display: block;
+            width: 100%;
+            padding: 2.3rem 1rem 1.9rem;
+            border: none;
+            color: var(--input-typing-color);
+            flex: 1 1 auto;
+            background-color: var(--app-color);
+            caret-color: var(--bright-blue);
+
+            @media (max-width: 576px) {
+                font-size: 1.6rem;
+                padding: 1.7rem 1rem 1.3rem;
+            }
+
+            &::placeholder {
+                color: var(--dark-grayish-blue-light-mode);
+            }
+
+            &:focus-visible {
+                outline: none;
+            }
+        }
+
+        .check-btn__wrapper {
+            top: 0;
+            align-items: center;
+        }
+
+        .check-btn {
+            top: 1.9rem;
+
+            @media (max-width: 576px) {
+                top: 1.4rem;
+            }
+        }
+    }
+
+    &__text-input {
+        display: inline-block;
+        width: var(--input-width);
+        min-width: 1rem;
+        max-width: 42rem;
+        padding: 1.2rem 0 .8rem 0;
+        border: .1rem solid transparent;
+        background-color: var(--app-color);
+        color: var(--input-color);
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: none;
+        }
+
+        @media (max-width: 576px) {
+            font-size: 1.6rem;
+            max-width: 32rem;
+            padding: 1.2rem 0 .8rem 0;
+        }
+
+        @media (max-width: 375px) {
+            font-size: 1.4rem;
+        }
+    }
+
+    .hidden-input-content {
+        visibility: hidden;
+        white-space: pre;
+        position: absolute;
+        max-width: 42rem;
+
+        @media (max-width: 576px) {
+            max-width: 32rem;
+        }
+    }
+
+    .todo-item-cta {
+        position: absolute;
+        right: 1.75rem;
+        top: 2rem;
+        transform: translateX(0);
+        transition: .3s all ease;
+
+        @media (min-width: 577px) {
+            transform: translateX(100%);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        @media (max-width: 576px) {
+            top: 1.65rem;
+        }
+    }
+
+    .check-btn {
+        &__wrapper {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 6.5rem;
+            height: 100%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: center;
+            border: none;
+            box-shadow: none;
+            background-color: transparent;
+            cursor: pointer;
+
+            @media (max-width: 576px) {
+                width: 6rem;
+            }
+
+            &:hover {
+                .check-btn::before {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.completed {
+        .todo-item__text {
+            text-decoration: line-through;
+            color: var(--light-grayish-blue-light-mode);
+        }
+    }
+
+    .field-messages {
+        width: 100%;
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        bottom: -100%;
+        left: 0;
+        z-index: 1;
+        transition: .3s all ease;
+
+        &.active {
+            visibility: visible;
+            opacity: 1;
+            bottom: 0;
+        }
+
+        .field-error-message {
+            font-size: 1.5rem;
+            padding: 1.2rem 1.5rem 1rem;
+            background-color: var(--app-danger-bg);
+            border: .1rem solid var(--app-danger-border-color);
+            display: none;
+
+            &:last-child {
+                display: block;
+            }
+
+            &__description {
+                color: var(--app-danger-color);
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.action-button {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    line-height: 1;
+    padding: .25rem;
+    cursor: pointer;
+
+    &__icon {
+        vertical-align: bottom;
+        
+        @media (max-width: 576px) {
+            display: block;
+            width: 15px;
+            height: 15px;
+        }
+    }
+
+    &:not(:last-child) {
+        margin-right: .5rem;
+    }
+}
