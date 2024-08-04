@@ -1,6 +1,7 @@
 const currentTask = process.env.npm_lifecycle_event;
 const path = require("path");
 const Dotenv = require("dotenv-webpack");
+const dist_path = '/apps/todo-app-backend/docs/';
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
@@ -94,7 +95,7 @@ if (currentTask == "webpackBuild" || currentTask == "build") {
   cssConfig.use.unshift(MiniCssExtractPlugin.loader)
   config.mode = "production"
   config.output = {
-    publicPath: "/",
+    publicPath: dist_path,
     path: path.resolve(__dirname, "docs"),
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",

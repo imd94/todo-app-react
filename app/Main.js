@@ -5,7 +5,7 @@ import { useImmerReducer } from 'use-immer';
 import Axios from 'axios';
 import './assets/styles/styles.scss'
 
-Axios.defaults.baseURL = process.env.BACKENDURL;
+Axios.defaults.baseURL = process.env.REACT_APP_BACKENDURL;
 
 // Context
 import StateContext from './StateContext';
@@ -69,9 +69,3 @@ function App(props) {
 
 const root = ReactDOM.createRoot(document.querySelector('#app'));
 root.render(<App />);
-
-/* if (module.hot) {
-    module.hot.accept()
-} */
-
-// https://github.com/LearnWebCode/react-course

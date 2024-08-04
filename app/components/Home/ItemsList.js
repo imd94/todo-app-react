@@ -54,7 +54,7 @@ function ItemsList(props) {
                     dispatch({ type: 'notFound' });
                 }
             } catch(e) {
-                console.log('Sorry, there was a problem!');
+                console.log('Sorry, there was a problem!', e);
             }
         }
 
@@ -70,8 +70,7 @@ function ItemsList(props) {
         props.itemsCompletedStatus, 
         //props.statusCompleted
     ]);
-
-    console.log(state.isFetching, state.isLoading);
+    
 
     if(state.isFetching) {
         return (
