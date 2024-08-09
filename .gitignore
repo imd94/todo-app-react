@@ -1,4 +1,7 @@
 .env
+.env.preview_prod
+.env.dev
+.env.prod
 node_modules/
 docs/
 README-template.md

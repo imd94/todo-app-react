@@ -6,14 +6,14 @@
     width: 4rem;
     height: 4rem;
     background-repeat: no-repeat;
-    background-image: url(../assets/images/icon-moon.svg);
+    background-image: url(./assets/images/icon-moon.svg);
     background-position: center center;
     background-size: 2.6rem;
     transition: .3s all ease;
     cursor: pointer;
 
     &.dark-mode {
-        background-image: url(../assets/images/icon-sun.svg);
+        background-image: url(./assets/images/icon-sun.svg);
     }
     
     &__text {

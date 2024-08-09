@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, act } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { useImmerReducer } from 'use-immer';
 
 import InnerDispatchContext from "../InnerDispatchContext";

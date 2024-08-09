@@ -1,13 +1,14 @@
 const currentTask = process.env.npm_lifecycle_event;
 const path = require("path");
-const Dotenv = require("dotenv-webpack");
-const dist_path = '/apps/todo-app-backend/docs/';
+const dotenvWebpack = require("dotenv-webpack");
+const dotenv = require('dotenv');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackHarddiskPlugin = require("html-webpack-harddisk-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const fse = require("fs-extra");
 
+//let localPreview = process.env.REACT_APP_LOCAL_BUILD ? true : false;
 let cssConfig = {
   test: /\.s[ac]ss$/i,
   use: [
@@ -24,15 +25,8 @@ let cssConfig = {
 class RunAfterCompile {
   apply(compiler) {
     compiler.hooks.done.tap("Copy images", function () {
-      fse.copySync('./app/assets/images', './docs/assets/images')
-
-      /*
-        If you needed to copy another file or folder
-        such as your "images" folder, you could just
-        call fse.copySync() as many times as you need
-        to here to cover all of your files/folders.
-      */
-    })
+      fse.copySync('./app/assets/images', './docs/assets/images');
+    });
   }
 }
 
@@ -44,7 +38,7 @@ config = {
     filename: "bundled.js",
   },
   plugins: [
-    new Dotenv(),
+    //new dotenvWebpack(),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "app/index-template.html",
@@ -72,6 +66,7 @@ config = {
 
 if (currentTask == "webpackDev" || currentTask == "dev") {
   //cssConfig.use.unshift('style-loader')
+  dotenv.config({ path: './.env.dev' });
   cssConfig.use.unshift(MiniCssExtractPlugin.loader)
   config.devtool = "source-map"
   config.devServer = {
@@ -84,6 +79,9 @@ if (currentTask == "webpackDev" || currentTask == "dev") {
     historyApiFallback: { index: "index.html" },
   }
   config.plugins.push(
+    new dotenvWebpack({
+      path: './.env.dev'
+    }),
     new MiniCssExtractPlugin({
       filename: 'styles.css'
     }),
@@ -92,15 +90,39 @@ if (currentTask == "webpackDev" || currentTask == "dev") {
 
 
 if (currentTask == "webpackBuild" || currentTask == "build") {
+  dotenv.config({ path: './.env.prod' });
   cssConfig.use.unshift(MiniCssExtractPlugin.loader)
   config.mode = "production"
   config.output = {
-    publicPath: dist_path,
+    publicPath: process.env.REACT_APP_FILE_PATH_DIST,
     path: path.resolve(__dirname, "docs"),
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
   }
   config.plugins.push(
+    new dotenvWebpack({
+      path: './.env.prod'
+    }),
+    new CleanWebpackPlugin(), 
+    new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}),
+    new RunAfterCompile()
+  )
+}
+
+if(currentTask == 'localBuild' || currentTask == 'webpackLocalBuild') {
+  dotenv.config({ path: './.env.dev' });
+  cssConfig.use.unshift(MiniCssExtractPlugin.loader)
+  config.mode = "development"
+  config.output = {
+    publicPath: '/',
+    path: path.resolve(__dirname, "docs"),
+    filename: "[name].[chunkhash].js",
+    chunkFilename: "[name].[chunkhash].js",
+  }
+  config.plugins.push(
+    new dotenvWebpack({
+      path: './.env.dev'
+    }),
     new CleanWebpackPlugin(), 
     new MiniCssExtractPlugin({filename: 'styles.[chunkhash].css'}),
     new RunAfterCompile()

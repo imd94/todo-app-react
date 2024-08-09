@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useImmerReducer } from 'use-immer';
 import Axios from 'axios';
-import './assets/styles/styles.scss'
+import './assets/styles/styles.scss';
 
-Axios.defaults.baseURL = process.env.REACT_APP_BACKENDURL;
+Axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 
 // Context
 import StateContext from './StateContext';
@@ -50,7 +50,7 @@ function App(props) {
         <StateContext.Provider value={state}>
             <DispatchContext.Provider value={dispatch}>
 
-                <BrowserRouter>
+                <BrowserRouter basename={ process.env.REACT_APP_FILE_PATH_DIST }>
 
                     <FlashMessages />
 

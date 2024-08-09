@@ -1,3 +1,5 @@
+const currentTask = process.env.npm_lifecycle_event;
+import { config } from 'dotenv'
 import React from "react";
 import ReactDOMServer from "react-dom/server";
 import fs from "fs";
@@ -7,6 +9,12 @@ import HomeHeader from "./app/components/Home/HomeHeader";
 import SpinnerLoader from "./app/components/SpinnerLoader";
 import { StaticRouter as Router } from "react-router-dom/server";
 import InnerStateContext from "./app/components/InnerStateContext";
+
+if(currentTask == 'generateBuild') {
+  config({ path: './.env.prod' });
+} else {
+  config({ path: './.env.dev' });
+}
 
 function Shell() {
   return (
@@ -20,11 +28,11 @@ function Shell() {
             </div>
         </Page>
       </Router>      
-    </InnerStateContext.Provider>    
+    </InnerStateContext.Provider>
   )
 }
 
-const startOfHTML = `<!DOCTYPE html>
+const startOfHTML = `
   <!DOCTYPE html>
     <html lang="en">
     <head>

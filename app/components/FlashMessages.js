@@ -21,7 +21,7 @@ function FlashMessages() {
     }
 
     return (
-        <div className="flash-messages">
+        <div className={ `flash-messages` }>
             { appState.flashMessages.messages.map((message, index) => {
                 return (
                     <div key={index} className={ `flash-messages__message ${appState.flashMessages.class}` }>

@@ -257,14 +257,14 @@ function Item(props) {
 
             <div className="check-btn__wrapper" onClick={ checkHandler } ref={ checkBtnRef } >
                 <button className={ `check-btn ${ prityCompleted() }` }>
-                    <img className="check-btn__icon" src="assets/images/icon-check.svg" alt="Check Icon" />
+                    <img className="check-btn__icon" src={ `${ process.env.REACT_APP_FILE_PATH_DIST }assets/images/icon-check.svg` } alt="Check Icon" />
                 </button>
             </div>
 
             <div className="todo-item-cta">
                 <button className="action-button delete-me" onClick={ handleDeleteItem } ref={ deleteBtnRef }>
                     <span className="hidden">Delete</span>
-                    <img className="action-button__icon" src="assets/images/icon-cross.svg" alt="Delete Icon" />
+                    <img className="action-button__icon" src={ `${ process.env.REACT_APP_FILE_PATH_DIST }assets/images/icon-cross.svg` } alt="Delete Icon" />
                 </button>
             </div>
 
