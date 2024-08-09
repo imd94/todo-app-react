@@ -94,6 +94,10 @@
         padding: 3rem 2rem;
         text-align: center;
 
+        &__text {
+            color: var(--not-found-text);
+        }
+
         @media (max-width: 576px) {
             border-radius: .5rem;
             background-color: var(--white);

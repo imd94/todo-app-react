@@ -39,6 +39,7 @@
     --footer-text-color: var(--dark-grayish-blue-light-mode);
     --footer-text-hover: var(--very-dark-grayish-blue);
     --footer-categories-shadow: var(--very-light-grayish-blue);
+    --not-found-text: var(--input-typing-color);
 }
 
 
@@ -56,4 +57,5 @@ body:has(.dark-mode) {
     --footer-text-color: var(--dark-grayish-blue-dark-mode);
     --footer-text-hover: var(--light-grayish-blue-light-mode);
     --footer-categories-shadow: var(--very-dark-blue);
+    --not-found-text: var(--input-typing-color);
 }
