@@ -53,9 +53,6 @@ function Home() {
     }
 
     const [state, dispatch] = useImmerReducer(compReducer, originalState);
-    /* const [category, setCategory] = useState({
-        cat: 'category--all'
-    }); */
 
 
     useEffect(() => {
@@ -88,7 +85,6 @@ function Home() {
                             //category={ category.cat }
                         />
                         <Categories />
-                        {/* <Categories category={ category } setCategory={ setCategory } /> */}
                     </div>
 
                     <Note />

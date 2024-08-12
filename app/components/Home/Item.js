@@ -36,6 +36,7 @@ function Item(props) {
         switch(action.type) {
             case 'descriptionChanged':
                 draft.item.hasErrors = false;
+                draft.item.errorMessages = [];
                 draft.item.value = action.value;
                 draft.descriptionChanged = true;
                 return;

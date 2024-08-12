@@ -85,6 +85,14 @@
     background-color: var(--app-color);
     padding-bottom: 5rem;
 
+    @media (max-width: 576px) {
+        padding-bottom: 0;
+
+        &:has(.todo-list) {
+            padding-bottom: 5rem;
+        }
+    }
+
     &__inner {
         background-color: var(--app-color);
         border-radius: .5rem;
@@ -100,7 +108,7 @@
 
         @media (max-width: 576px) {
             border-radius: .5rem;
-            background-color: var(--white);
+            background-color: var(--app-color);
         }
 
         > p {
@@ -130,6 +138,7 @@
             left: 0;
             width: 100%;
             border-bottom: .1rem solid var(--item-bottom-border);
+            z-index: 2;
         }
 
         &.completed {

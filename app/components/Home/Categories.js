@@ -22,8 +22,6 @@ function Categories(props) {
     return (
         <div className="item-categories">
             <span 
-                //onClick={ (e) => props.setCategory({ cat: 'category--all' }) } 
-                //className={ `category category--all ${props.category.cat === 'category--all' ? 'current' : '' }` }
                 onClick={ handleCategoryTrigger }
                 className={ `category category--all ${homeState.currentCategory === 'category--all' ? 'current' : '' }` }
             >
@@ -31,8 +29,6 @@ function Categories(props) {
             </span>
 
             <span 
-                //onClick={ (e) => props.setCategory({ cat: 'category--active' }) } 
-                //className={ `category category--active ${props.category.cat === 'category--active' ? 'current' : '' }` }
                 onClick={ handleCategoryTrigger }
                 className={ `category category--active ${homeState.currentCategory === 'category--active' ? 'current' : '' }` }
             >
@@ -40,8 +36,6 @@ function Categories(props) {
             </span>
 
             <span 
-                //onClick={ (e) => props.setCategory({ cat: 'category--completed' }) } 
-                //className={ `category category--completed ${props.category.cat === 'category--completed' ? 'current' : '' }` }
                 onClick={ handleCategoryTrigger }
                 className={ `category category--completed ${homeState.currentCategory === 'category--completed' ? 'current' : '' }` }
             >

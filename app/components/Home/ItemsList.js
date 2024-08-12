@@ -25,12 +25,12 @@ function ItemsList(props) {
                 draft.isFetching = false;
                 draft.isLoading = false;
                 draft.items = action.value;
-                document.querySelector('#create-field').focus();
+                //document.querySelector('#create-field').focus();
                 return;
             case 'notFound':
                 draft.isFetching = false;
                 draft.notFound = true;
-                document.querySelector('#create-field').focus();
+                //document.querySelector('#create-field').focus();
                 return;
         }
     }
