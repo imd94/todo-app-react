@@ -45,8 +45,8 @@ Updates that I plan to implement in the future:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://imwebdev.in.rs/apps/todo-app-frontend/)
+- [My solution url on frontendmentor](https://www.frontendmentor.io/solutions/todo-app-reactexpressmysql-0DgDEmEtLr)
+- [My solution live](https://imd94.github.io/todo-app-react)
 
 ## My process
 
