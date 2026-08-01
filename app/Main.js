@@ -5,7 +5,7 @@ import { useImmerReducer } from 'use-immer';
 import Axios from 'axios';
 import './assets/styles/styles.scss';
 
-Axios.defaults.baseURL = process.env.REACT_APP_API_URL;
+Axios.defaults.baseURL = process.env.REACT_APP_API_URL_TWO;
 
 // Context
 import StateContext from './StateContext';
